@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D25A54F12AAFBECC005C5516 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A54F02AAFBECC005C5516 /* Extensions.swift */; };
-		D25A54F82AAFBF71005C5516 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A54F32AAFBF71005C5516 /* TasksViewController.swift */; };
-		D25A54F92AAFBF71005C5516 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A54F52AAFBF71005C5516 /* WelcomeViewController.swift */; };
-		D25A54FA2AAFBF71005C5516 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A54F62AAFBF71005C5516 /* LoginViewController.swift */; };
-		D25A54FB2AAFBF71005C5516 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A54F72AAFBF71005C5516 /* RegistrationViewController.swift */; };
 		D25A54FD2AAFBFA1005C5516 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */; };
 		D29A46F92AAD044300B2FB48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A46F82AAD044300B2FB48 /* AppDelegate.swift */; };
 		D29A46FB2AAD044300B2FB48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A46FA2AAD044300B2FB48 /* SceneDelegate.swift */; };
@@ -45,11 +41,11 @@
 		1E02B4A28364836CD8D699F1 /* Pods_TasksApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TasksApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D39435E18FF951A3602D70F /* Pods-TasksApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasksApp.release.xcconfig"; path = "Target Support Files/Pods-TasksApp/Pods-TasksApp.release.xcconfig"; sourceTree = "<group>"; };
 		CE12CC65FFD7C11372EC43FD /* Pods-TasksApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasksApp.debug.xcconfig"; path = "Target Support Files/Pods-TasksApp/Pods-TasksApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D2036BC02AAFC1B100D9211A /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		D2036BC32AAFC1CA00D9211A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D2036BC42AAFC1CA00D9211A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		D2036BC52AAFC1CA00D9211A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D25A54F02AAFBECC005C5516 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		D25A54F32AAFBF71005C5516 /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
-		D25A54F52AAFBF71005C5516 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		D25A54F62AAFBF71005C5516 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D25A54F72AAFBF71005C5516 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D29A46F52AAD044300B2FB48 /* TasksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29A46F82AAD044300B2FB48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +104,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D2036BBF2AAFC19800D9211A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D2036BC02AAFC1B100D9211A /* TasksViewController.swift */,
+				D2036BC22AAFC1CA00D9211A /* AuthViewControllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D2036BC22AAFC1CA00D9211A /* AuthViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2036BC42AAFC1CA00D9211A /* WelcomeViewController.swift */,
+				D2036BC32AAFC1CA00D9211A /* LoginViewController.swift */,
+				D2036BC52AAFC1CA00D9211A /* RegistrationViewController.swift */,
+			);
+			path = AuthViewControllers;
+			sourceTree = "<group>";
+		};
 		D25A54EC2AAFBEA6005C5516 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,26 +150,6 @@
 				D25A54F02AAFBECC005C5516 /* Extensions.swift */,
 			);
 			path = ColorSetLetters;
-			sourceTree = "<group>";
-		};
-		D25A54F22AAFBF71005C5516 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D25A54F32AAFBF71005C5516 /* TasksViewController.swift */,
-				D25A54F42AAFBF71005C5516 /* AuthViewControllers */,
-			);
-			name = View;
-			path = ../../SwiftApps/TasksAppGitVersion/TasksApp/View;
-			sourceTree = "<group>";
-		};
-		D25A54F42AAFBF71005C5516 /* AuthViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				D25A54F52AAFBF71005C5516 /* WelcomeViewController.swift */,
-				D25A54F62AAFBF71005C5516 /* LoginViewController.swift */,
-				D25A54F72AAFBF71005C5516 /* RegistrationViewController.swift */,
-			);
-			path = AuthViewControllers;
 			sourceTree = "<group>";
 		};
 		D29A46EC2AAD044300B2FB48 = {
@@ -187,7 +182,7 @@
 				D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */,
 				D29A47062AAD044500B2FB48 /* Info.plist */,
 				D25A54EC2AAFBEA6005C5516 /* Model */,
-				D25A54F22AAFBF71005C5516 /* View */,
+				D2036BBF2AAFC19800D9211A /* Views */,
 				D25A54ED2AAFBEB1005C5516 /* Services */,
 				D25A54EE2AAFBEBC005C5516 /* ViewModel */,
 				D25A54EF2AAFBECC005C5516 /* ColorSetLetters */,
@@ -399,11 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D25A54FA2AAFBF71005C5516 /* LoginViewController.swift in Sources */,
 				D29A46F92AAD044300B2FB48 /* AppDelegate.swift in Sources */,
-				D25A54F92AAFBF71005C5516 /* WelcomeViewController.swift in Sources */,
-				D25A54F82AAFBF71005C5516 /* TasksViewController.swift in Sources */,
-				D25A54FB2AAFBF71005C5516 /* RegistrationViewController.swift in Sources */,
 				D29A46FB2AAD044300B2FB48 /* SceneDelegate.swift in Sources */,
 				D25A54F12AAFBECC005C5516 /* Extensions.swift in Sources */,
 			);
