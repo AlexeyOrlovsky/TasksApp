@@ -5,6 +5,11 @@ target 'TasksApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+# Firebase
+
+ pod 'Firebase'
+ pod 'FirebaseAuth' 
+
 # Other
 
  pod 'SnapKit'
