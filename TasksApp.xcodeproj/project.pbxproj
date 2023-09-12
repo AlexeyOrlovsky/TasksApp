@@ -10,6 +10,11 @@
 		D2036BC62AAFC32300D9211A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BC42AAFC1CA00D9211A /* WelcomeViewController.swift */; };
 		D2036BC72AAFC34800D9211A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BC32AAFC1CA00D9211A /* LoginViewController.swift */; };
 		D2036BC82AAFC35200D9211A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BC52AAFC1CA00D9211A /* RegistrationViewController.swift */; };
+		D2036BCA2AB0EA2600D9211A /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BC92AB0EA2600D9211A /* NavigationManager.swift */; };
+		D2036BCB2AB0F8B200D9211A /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BC02AAFC1B100D9211A /* TasksViewController.swift */; };
+		D2036BCD2AB0FAA100D9211A /* UserAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BCC2AB0FAA100D9211A /* UserAccountModel.swift */; };
+		D2036BCF2AB0FB9B00D9211A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */; };
+		D2036BD32AB1003300D9211A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BD22AB1003300D9211A /* TabBarViewController.swift */; };
 		D25A54FD2AAFBFA1005C5516 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */; };
 		D29A46F92AAD044300B2FB48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A46F82AAD044300B2FB48 /* AppDelegate.swift */; };
 		D29A46FB2AAD044300B2FB48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A46FA2AAD044300B2FB48 /* SceneDelegate.swift */; };
@@ -47,6 +52,10 @@
 		D2036BC32AAFC1CA00D9211A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D2036BC42AAFC1CA00D9211A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D2036BC52AAFC1CA00D9211A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		D2036BC92AB0EA2600D9211A /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		D2036BCC2AB0FAA100D9211A /* UserAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountModel.swift; sourceTree = "<group>"; };
+		D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		D2036BD22AB1003300D9211A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D29A46F52AAD044300B2FB48 /* TasksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29A46F82AAD044300B2FB48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,8 +117,10 @@
 		D2036BBF2AAFC19800D9211A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D2036BC02AAFC1B100D9211A /* TasksViewController.swift */,
 				D2036BC22AAFC1CA00D9211A /* AuthViewControllers */,
+				D2036BD22AB1003300D9211A /* TabBarViewController.swift */,
+				D2036BC02AAFC1B100D9211A /* TasksViewController.swift */,
+				D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +138,7 @@
 		D25A54EC2AAFBEA6005C5516 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D2036BCC2AB0FAA100D9211A /* UserAccountModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +146,7 @@
 		D25A54ED2AAFBEB1005C5516 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D2036BC92AB0EA2600D9211A /* NavigationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -397,8 +410,13 @@
 				D2036BC72AAFC34800D9211A /* LoginViewController.swift in Sources */,
 				D2036BC62AAFC32300D9211A /* WelcomeViewController.swift in Sources */,
 				D29A46F92AAD044300B2FB48 /* AppDelegate.swift in Sources */,
+				D2036BCB2AB0F8B200D9211A /* TasksViewController.swift in Sources */,
 				D29A46FB2AAD044300B2FB48 /* SceneDelegate.swift in Sources */,
 				D2036BC82AAFC35200D9211A /* RegistrationViewController.swift in Sources */,
+				D2036BCD2AB0FAA100D9211A /* UserAccountModel.swift in Sources */,
+				D2036BCA2AB0EA2600D9211A /* NavigationManager.swift in Sources */,
+				D2036BD32AB1003300D9211A /* TabBarViewController.swift in Sources */,
+				D2036BCF2AB0FB9B00D9211A /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

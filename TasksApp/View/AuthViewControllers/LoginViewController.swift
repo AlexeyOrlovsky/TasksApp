@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
@@ -178,7 +179,25 @@ extension LoginViewController {
     }
     
     func checkExistsUserInFirebase(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password)
+        Auth.auth().signIn(withEmail: email, password: password) { [self] authResult, error in
+            guard let result = authResult, error == nil else { return }
+            
+            _ = result.user
+            
+            saveUserInRealm(email: email, password: password)
+        }
+    }
+    
+    func saveUserInRealm(email: String, password: String) {
+        let saveUser = UserAccountModel()
+        saveUser.email = email
+        saveUser.password = password
+        
+        let realm = try! Realm()
+        try! realm.write({
+            realm.add(saveUser)
+            NavigationManager.shared.showAuthUserStage()
+        })
     }
     
     @objc func hideCurrentViewController() {

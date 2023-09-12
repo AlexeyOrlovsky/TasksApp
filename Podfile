@@ -13,5 +13,6 @@ target 'TasksApp' do
 # Other
 
  pod 'SnapKit'
+ pod 'RealmSwift'
 
 end
