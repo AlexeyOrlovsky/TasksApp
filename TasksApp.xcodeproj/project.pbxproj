@@ -15,6 +15,7 @@
 		D2036BCD2AB0FAA100D9211A /* UserAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BCC2AB0FAA100D9211A /* UserAccountModel.swift */; };
 		D2036BCF2AB0FB9B00D9211A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */; };
 		D2036BD32AB1003300D9211A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BD22AB1003300D9211A /* TabBarViewController.swift */; };
+		D2036BD72AB2564200D9211A /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BD62AB2564200D9211A /* CreateTaskViewController.swift */; };
 		D25A54FD2AAFBFA1005C5516 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */; };
 		D29A46F92AAD044300B2FB48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A46F82AAD044300B2FB48 /* AppDelegate.swift */; };
 		D29A46FB2AAD044300B2FB48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A46FA2AAD044300B2FB48 /* SceneDelegate.swift */; };
@@ -56,6 +57,7 @@
 		D2036BCC2AB0FAA100D9211A /* UserAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountModel.swift; sourceTree = "<group>"; };
 		D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		D2036BD22AB1003300D9211A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		D2036BD62AB2564200D9211A /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D29A46F52AAD044300B2FB48 /* TasksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29A46F82AAD044300B2FB48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +121,8 @@
 			children = (
 				D2036BC22AAFC1CA00D9211A /* AuthViewControllers */,
 				D2036BD22AB1003300D9211A /* TabBarViewController.swift */,
-				D2036BC02AAFC1B100D9211A /* TasksViewController.swift */,
-				D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */,
+				D2036BD42AB255C400D9211A /* MainViewControllers */,
+				D2036BD52AB255E400D9211A /* SubViewControllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +135,23 @@
 				D2036BC32AAFC1CA00D9211A /* LoginViewController.swift */,
 			);
 			path = AuthViewControllers;
+			sourceTree = "<group>";
+		};
+		D2036BD42AB255C400D9211A /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2036BC02AAFC1B100D9211A /* TasksViewController.swift */,
+				D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */,
+			);
+			path = MainViewControllers;
+			sourceTree = "<group>";
+		};
+		D2036BD52AB255E400D9211A /* SubViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2036BD62AB2564200D9211A /* CreateTaskViewController.swift */,
+			);
+			path = SubViewControllers;
 			sourceTree = "<group>";
 		};
 		D25A54EC2AAFBEA6005C5516 /* Model */ = {
@@ -409,6 +428,7 @@
 			files = (
 				D2036BC72AAFC34800D9211A /* LoginViewController.swift in Sources */,
 				D2036BC62AAFC32300D9211A /* WelcomeViewController.swift in Sources */,
+				D2036BD72AB2564200D9211A /* CreateTaskViewController.swift in Sources */,
 				D29A46F92AAD044300B2FB48 /* AppDelegate.swift in Sources */,
 				D2036BCB2AB0F8B200D9211A /* TasksViewController.swift in Sources */,
 				D29A46FB2AAD044300B2FB48 /* SceneDelegate.swift in Sources */,
