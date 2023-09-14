@@ -33,6 +33,9 @@ class TasksViewController: UIViewController {
     func setupViewDidLoad() {
         title = "Tasts"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .done, target: self, action: #selector(rightBarButtonAction))
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
     func setupCollectionView() {
@@ -63,3 +66,13 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+/// @objc func
+extension TasksViewController {
+    
+    @objc func rightBarButtonAction() {
+        
+        let vc = CreateTaskViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
