@@ -230,7 +230,7 @@ extension RegistrationViewController {
 
 /// Alerts
 extension RegistrationViewController {
-    
+    //
 }
 
 /// random color

@@ -21,6 +21,8 @@ class TasksViewController: UIViewController {
         UIColor(red: 147/255, green: 34/255, blue: 102/255, alpha: 1)
     ]
     
+    let tasks = TasksItems()
+    
     let tableView = UITableView()
     
     override func viewDidLoad() {
@@ -51,7 +53,7 @@ class TasksViewController: UIViewController {
 
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        // return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

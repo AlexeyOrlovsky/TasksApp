@@ -177,13 +177,29 @@ extension CreateTaskViewController {
     
     @objc func rightBarButtonAction() {
         
-
+        let saveTask = TasksItems()
+        saveTask.titleTask = toDoTextField.text!
+        saveTask.taskDescription = taskTextField.text!
+        saveTask.topic = topicTextField.text!
+        
+        let realm = try? Realm()
+        try? realm?.write {
+            realm?.add(saveTask)
+        }
         /// dismiss
         navigationController?.popViewController(animated: true)
     }
 }
 
-
+//let saveUser = UserAccountModel()
+//saveUser.email = email
+//saveUser.password = password
+//
+//let realm = try! Realm()
+//try! realm.write({
+//    realm.add(saveUser)
+//    NavigationManager.shared.showAuthUserStage()
+//})
 
 // Array []
 
