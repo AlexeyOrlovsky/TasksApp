@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
 class CreateTaskViewController: UIViewController {
     
@@ -176,7 +177,16 @@ extension CreateTaskViewController {
     
     @objc func rightBarButtonAction() {
         
-//        let vc = CreateTaskViewController()
-//        vc.dismiss(animated: true)
+
+        /// dismiss
+        navigationController?.popViewController(animated: true)
     }
 }
+
+
+
+// Array []
+
+// Create item -> put in Array
+
+// item in -> table
