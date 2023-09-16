@@ -15,21 +15,19 @@ class TabBarViewController: UITabBarController {
         setupTabBar()
     }
     
-    
     func setupTabBar() {
         viewControllers = [
-            UINavigationController(rootViewController: viewController(viewController: TasksViewController(),
-                                                                      title: "Tasks",
-                                                                      image: UIImage(systemName: "list.bullet.rectangle.portrait")!)),
-            UINavigationController(rootViewController: viewController(viewController: AccountViewController(),
-                                                                      title: "Account",
-                                                                      image: UIImage(systemName: "person.fill")!))
+            UINavigationController(rootViewController: viewController(viewController: TasksViewController(), title: "Tasks", image: UIImage(systemName: "list.bullet.rectangle.portrait")!)),
+            UINavigationController(rootViewController: viewController(viewController: AccountViewController(), title: "Account", image: UIImage(systemName: "person.fill")!))
         ]
     }
     
     func viewController(viewController: UIViewController, title: String, image: UIImage) -> UIViewController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
+        
+        tabBar.tintColor = .lightGray
+        tabBar.unselectedItemTintColor = .systemGray2
         return viewController
     }
 }

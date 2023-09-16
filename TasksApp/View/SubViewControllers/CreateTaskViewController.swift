@@ -180,10 +180,14 @@ extension CreateTaskViewController {
         
         let realm = try? Realm()
         
-        guard let text = toDoTextField.text else { return }
+        guard let title = toDoTextField.text,
+              let taskDescription = taskTextField.text,
+              let topic = topicTextField.text else { return }
         
         let task = Task()
-        task.title = text
+        task.title = title
+        task.taskDescription = taskDescription
+        task.topic = topic
         
         do {
             let realm = try Realm()

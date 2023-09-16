@@ -26,6 +26,7 @@ class TasksViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
@@ -47,27 +48,36 @@ class TasksViewController: UIViewController {
     }
     
     func setupCollectionView() {
-        
         view.addSubview(collectionView)
         
         collectionView.register(TasksCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
+        collectionView.frame = view.bounds
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        collectionView.frame = view.bounds
-        
+        configureGetTasks()
+    }
+    
+    func configureGetTasks() {
         do {
-            let realm = try Realm()
-            tasks = realm.objects(Task.self)
+            let realm = try? Realm()
+            tasks = realm?.objects(Task.self)
+            tasks = realm?.objects(Task.self).sorted(byKeyPath: "createdAt", ascending: false)
         } catch {
             /// error handling from Realm
-            print("Ошибка загрузки задач: \(error.localizedDescription)")
+            print("Error upload tasks: \(error.localizedDescription)")
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
 }
 
-/// UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
+// MARK: UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
 extension TasksViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tasks.count
@@ -77,7 +87,9 @@ extension TasksViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TasksCollectionViewCell
         let task = tasks[indexPath.item]
         cell?.titleLabel.text = task.title
-        cell?.backgroundColor = backgroundColorCell.randomElement()
+        cell?.taskDescription.text = task.taskDescription
+        cell?.topic.text = task.topic
+        cell?.backgroundColor = backgroundColorCell[indexPath.item % backgroundColorCell.count]
         return cell!
     }
     

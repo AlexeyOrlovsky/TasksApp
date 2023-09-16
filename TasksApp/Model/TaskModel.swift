@@ -12,5 +12,8 @@ import RealmSwift
 class Task: Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var title = ""
+    @objc dynamic var taskDescription = ""
+    @objc dynamic var topic = ""
     @objc dynamic var isCompleted = false
+    @objc dynamic var createdAt = Date()
 }

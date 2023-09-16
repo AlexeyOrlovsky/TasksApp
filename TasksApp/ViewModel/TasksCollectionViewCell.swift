@@ -11,26 +11,34 @@ import SnapKit
 class TasksCollectionViewCell: UICollectionViewCell {
 
     /// UI Elements
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let titleLabel = UILabel()
+    let taskDescription = UILabel()
+    let topic = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         contentView.addSubview(titleLabel)
+        contentView.addSubview(taskDescription)
+        contentView.addSubview(topic)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
-            make.right.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(4)
             make.left.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(10)
+        }
+        
+        taskDescription.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.left.equalToSuperview().inset(10)
+        }
+        
+        topic.snp.makeConstraints { make in
+            make.top.equalTo(taskDescription.snp.bottom).offset(4)
+            make.left.equalToSuperview().inset(10)
         }
     }
     
