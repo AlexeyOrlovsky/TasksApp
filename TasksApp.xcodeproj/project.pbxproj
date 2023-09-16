@@ -16,8 +16,8 @@
 		D2036BCF2AB0FB9B00D9211A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */; };
 		D2036BD32AB1003300D9211A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BD22AB1003300D9211A /* TabBarViewController.swift */; };
 		D2036BD72AB2564200D9211A /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036BD62AB2564200D9211A /* CreateTaskViewController.swift */; };
-		D2036C172AB4F13A00D9211A /* TasksItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036C162AB4F13A00D9211A /* TasksItems.swift */; };
 		D2036C1B2AB4F66600D9211A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036C1A2AB4F66600D9211A /* TaskModel.swift */; };
+		D2036C1D2AB5CC0D00D9211A /* TasksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036C1C2AB5CC0D00D9211A /* TasksCollectionViewCell.swift */; };
 		D25A54FD2AAFBFA1005C5516 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */; };
 		D29A46F92AAD044300B2FB48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A46F82AAD044300B2FB48 /* AppDelegate.swift */; };
 		D29A46FB2AAD044300B2FB48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A46FA2AAD044300B2FB48 /* SceneDelegate.swift */; };
@@ -60,8 +60,8 @@
 		D2036BCE2AB0FB9B00D9211A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		D2036BD22AB1003300D9211A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D2036BD62AB2564200D9211A /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
-		D2036C162AB4F13A00D9211A /* TasksItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksItems.swift; sourceTree = "<group>"; };
 		D2036C1A2AB4F66600D9211A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		D2036C1C2AB5CC0D00D9211A /* TasksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCollectionViewCell.swift; sourceTree = "<group>"; };
 		D25A54FC2AAFBFA1005C5516 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D29A46F52AAD044300B2FB48 /* TasksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29A46F82AAD044300B2FB48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				D2036BCC2AB0FAA100D9211A /* UserAccountModel.swift */,
-				D2036C162AB4F13A00D9211A /* TasksItems.swift */,
 				D2036C1A2AB4F66600D9211A /* TaskModel.swift */,
 			);
 			path = Model;
@@ -179,6 +178,7 @@
 		D25A54EE2AAFBEBC005C5516 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D2036C1C2AB5CC0D00D9211A /* TasksCollectionViewCell.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -435,7 +435,7 @@
 				D2036BC72AAFC34800D9211A /* LoginViewController.swift in Sources */,
 				D2036BC62AAFC32300D9211A /* WelcomeViewController.swift in Sources */,
 				D2036BD72AB2564200D9211A /* CreateTaskViewController.swift in Sources */,
-				D2036C172AB4F13A00D9211A /* TasksItems.swift in Sources */,
+				D2036C1D2AB5CC0D00D9211A /* TasksCollectionViewCell.swift in Sources */,
 				D29A46F92AAD044300B2FB48 /* AppDelegate.swift in Sources */,
 				D2036BCB2AB0F8B200D9211A /* TasksViewController.swift in Sources */,
 				D29A46FB2AAD044300B2FB48 /* SceneDelegate.swift in Sources */,

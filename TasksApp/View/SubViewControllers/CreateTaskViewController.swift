@@ -11,6 +11,7 @@ import RealmSwift
 
 class CreateTaskViewController: UIViewController {
     
+    /// UI Elements
     let titleToDoLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
@@ -177,32 +178,24 @@ extension CreateTaskViewController {
     
     @objc func rightBarButtonAction() {
         
-        let saveTask = TasksItems()
-        saveTask.titleTask = toDoTextField.text!
-        saveTask.taskDescription = taskTextField.text!
-        saveTask.topic = topicTextField.text!
-        
         let realm = try? Realm()
-        try? realm?.write {
-            realm?.add(saveTask)
+        
+        guard let text = toDoTextField.text else { return }
+        
+        let task = Task()
+        task.title = text
+        
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(task)
+            }
+        } catch {
+            /// error handling seving in Realm
+            print("Ошибка сохранения задачи: \(error.localizedDescription)")
         }
+        
         /// dismiss
         navigationController?.popViewController(animated: true)
     }
 }
-
-//let saveUser = UserAccountModel()
-//saveUser.email = email
-//saveUser.password = password
-//
-//let realm = try! Realm()
-//try! realm.write({
-//    realm.add(saveUser)
-//    NavigationManager.shared.showAuthUserStage()
-//})
-
-// Array []
-
-// Create item -> put in Array
-
-// item in -> table

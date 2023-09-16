@@ -6,15 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Task {
-    var titleTask: String
-    var taskDescription: String
-    var topic: String
-    
-    init(titleTask: String, taskDescription: String, topic: String) {
-        self.titleTask = titleTask
-        self.taskDescription = taskDescription
-        self.topic = topic
-    }
+/// Data model for save tasks 
+class Task: Object {
+    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var title = ""
+    @objc dynamic var isCompleted = false
 }
