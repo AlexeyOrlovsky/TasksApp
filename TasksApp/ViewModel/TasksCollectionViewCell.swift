@@ -29,16 +29,19 @@ class TasksCollectionViewCell: UICollectionViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(4)
             make.left.equalToSuperview().inset(10)
+            make.width.equalTo(340)
         }
         
         taskDescription.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(4)
             make.left.equalToSuperview().inset(10)
+            make.width.equalTo(340)
         }
         
         topic.snp.makeConstraints { make in
             make.top.equalTo(taskDescription.snp.bottom).offset(4)
             make.left.equalToSuperview().inset(10)
+            make.width.equalTo(340)
         }
     }
     

@@ -134,6 +134,7 @@ class CreateTaskViewController: UIViewController {
         setupViewDidLoad()
         setupAddSubviews()
         setupTopicButtonsBackgrounds()
+        setupButtonActions()
     }
     
     func setupViewDidLoad() {
@@ -166,6 +167,14 @@ class CreateTaskViewController: UIViewController {
         view.addSubview(helpTopicButton)
         view.addSubview(educationTopicButton)
         view.addSubview(otherTopicButton)
+    }
+    
+    func setupButtonActions() {
+        homeTopicButton.addTarget(self, action: #selector(homeButtonAction), for: .touchUpInside)
+        sportTopicButton.addTarget(self, action: #selector(sportButtonAction), for: .touchUpInside)
+        helpTopicButton.addTarget(self, action: #selector(helpButtonAction), for: .touchUpInside)
+        educationTopicButton.addTarget(self, action: #selector(educationButtonAction), for: .touchUpInside)
+        otherTopicButton.addTarget(self, action: #selector(otherButtonAction), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -298,6 +307,26 @@ extension CreateTaskViewController {
         
         /// dismiss
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func homeButtonAction() {
+        topicTextField.text = "Homework"
+    }
+    
+    @objc func sportButtonAction() {
+        topicTextField.text = "Sport"
+    }
+    
+    @objc func helpButtonAction() {
+        topicTextField.text = "Help"
+    }
+    
+    @objc func educationButtonAction() {
+        topicTextField.text = "Education"
+    }
+    
+    @objc func otherButtonAction() {
+        topicTextField.text = "Other"
     }
 }
 
