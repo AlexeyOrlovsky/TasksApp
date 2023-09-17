@@ -19,6 +19,7 @@ class AccountViewController: UIViewController {
     func setupViewDidLoad() {
         title = "Account"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "door.right.hand.open"), style: .done, target: self, action: #selector(rightBarButtonAction))
+        navigationItem.rightBarButtonItem?.tintColor = .systemGray
     }
 }
 

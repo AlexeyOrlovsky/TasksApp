@@ -11,9 +11,15 @@ import RealmSwift
 
 class CreateTaskViewController: UIViewController {
     
-    /// UI Elements
-    let titleToDoLabel: UILabel = {
-        let label = UILabel()
+    let redBackground = UIColor(red: 118/255, green: 19/255, blue: 20/255, alpha: 1)
+    let yellowBackground = UIColor(red: 154/255, green: 109/255, blue: 43/255, alpha: 1)
+    let greenBackground = UIColor(red: 132/255, green: 163/255, blue: 45/255, alpha: 1)
+    let darkGreenBackground = UIColor(red: 42/255, green: 149/255, blue: 104/255, alpha: 1)
+    let purpleBackground = UIColor(red: 52/255, green: 140/255, blue: 146/255, alpha: 1)
+        
+        /// UI Elements
+        let titleToDoLabel: UILabel = {
+            let label = UILabel()
         label.text = "Title"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         return label
@@ -81,11 +87,53 @@ class CreateTaskViewController: UIViewController {
         return textField
     }()
     
+    /// UI Topic Buttons
+    let homeTopicButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Home", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    let sportTopicButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Sport", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    let helpTopicButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Help", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    let educationTopicButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Education", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 10, weight: .bold)
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    let otherTopicButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Other", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViewDidLoad()
         setupAddSubviews()
+        setupTopicButtonsBackgrounds()
     }
     
     func setupViewDidLoad() {
@@ -112,6 +160,12 @@ class CreateTaskViewController: UIViewController {
         
         view.addSubview(topicView)
         topicView.addSubview(topicTextField)
+        
+        view.addSubview(homeTopicButton)
+        view.addSubview(sportTopicButton)
+        view.addSubview(helpTopicButton)
+        view.addSubview(educationTopicButton)
+        view.addSubview(otherTopicButton)
     }
     
     override func viewDidLayoutSubviews() {
@@ -170,6 +224,49 @@ class CreateTaskViewController: UIViewController {
             make.left.equalToSuperview().inset(10)
             make.width.equalTo(300)
         }
+        
+        homeTopicButton.snp.makeConstraints { make in
+            make.top.equalTo( topicView.snp.bottom).offset(6)
+            make.left.equalTo(topicView.snp.left)
+            make.width.equalTo(60)
+            make.height.equalTo(40)
+        }
+        
+        sportTopicButton.snp.makeConstraints { make in
+            make.top.equalTo(topicView.snp.bottom).offset(6)
+            make.left.equalTo(homeTopicButton.snp.right).offset(5)
+            make.width.equalTo(60)
+            make.height.equalTo(40)
+        }
+        
+        helpTopicButton.snp.makeConstraints { make in
+            make.top.equalTo(topicView.snp.bottom).offset(6)
+            make.left.equalTo(sportTopicButton.snp.right).offset(5)
+            make.width.equalTo(60)
+            make.height.equalTo(40)
+        }
+        
+        educationTopicButton.snp.makeConstraints { make in
+            make.top.equalTo(topicView.snp.bottom).offset(6)
+            make.left.equalTo(helpTopicButton.snp.right).offset(5)
+            make.width.equalTo(60)
+            make.height.equalTo(40)
+        }
+        
+        otherTopicButton.snp.makeConstraints { make in
+            make.top.equalTo(topicView.snp.bottom).offset(6)
+            make.left.equalTo(educationTopicButton.snp.right).offset(5)
+            make.width.equalTo(60)
+            make.height.equalTo(40)
+        }
+    }
+    
+    func setupTopicButtonsBackgrounds() {
+        homeTopicButton.backgroundColor = redBackground
+        sportTopicButton.backgroundColor = yellowBackground
+        helpTopicButton.backgroundColor = greenBackground
+        educationTopicButton.backgroundColor = darkGreenBackground
+        otherTopicButton.backgroundColor = purpleBackground
     }
 }
 
@@ -180,9 +277,9 @@ extension CreateTaskViewController {
         
         let realm = try? Realm()
         
-        guard let title = toDoTextField.text,
-              let taskDescription = taskTextField.text,
-              let topic = topicTextField.text else { return }
+        guard let title = toDoTextField.text, !title.isEmpty,
+              let taskDescription = taskTextField.text, !taskDescription.isEmpty,
+              let topic = topicTextField.text, !topic.isEmpty else { fullFields(); return }
         
         let task = Task()
         task.title = title
@@ -201,5 +298,15 @@ extension CreateTaskViewController {
         
         /// dismiss
         navigationController?.popViewController(animated: true)
+    }
+}
+
+/// Alerts
+extension CreateTaskViewController {
+    
+    func fullFields() {
+        let alert = UIAlertController(title: "Field is not full", message: "Fields: title, description, topic must be full", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        present(alert, animated: true)
     }
 }

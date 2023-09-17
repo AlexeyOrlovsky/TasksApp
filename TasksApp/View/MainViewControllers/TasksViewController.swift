@@ -65,9 +65,6 @@ class TasksViewController: UIViewController {
             let realm = try? Realm()
             tasks = realm?.objects(Task.self)
             tasks = realm?.objects(Task.self).sorted(byKeyPath: "createdAt", ascending: false)
-        } catch {
-            /// error handling from Realm
-            print("Error upload tasks: \(error.localizedDescription)")
         }
     }
     
@@ -90,11 +87,12 @@ extension TasksViewController: UICollectionViewDataSource, UICollectionViewDeleg
         cell?.taskDescription.text = task.taskDescription
         cell?.topic.text = task.topic
         cell?.backgroundColor = backgroundColorCell[indexPath.item % backgroundColorCell.count]
+        cell?.layer.cornerRadius = 20
         return cell!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 340, height: 80)
+        return CGSize(width: 360, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
