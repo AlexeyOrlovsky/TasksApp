@@ -10,6 +10,8 @@ import RealmSwift
 
 class TasksViewController: UIViewController {
     
+    let realm = try! Realm()
+    
     /// Background Colors Cell
     let backgroundColorCell = [
         UIColor(red: 118/255, green: 19/255, blue: 20/255, alpha: 1),
@@ -62,9 +64,10 @@ class TasksViewController: UIViewController {
     
     func configureGetTasks() {
         do {
-            let realm = try? Realm()
-            tasks = realm?.objects(Task.self)
-            tasks = realm?.objects(Task.self).sorted(byKeyPath: "createdAt", ascending: false)
+            let realm = try Realm()
+            self.tasks = realm.objects(Task.self).sorted(byKeyPath: "createdAt", ascending: false)
+        } catch {
+            print("Ошибка при получении данных из Realm: \(error)")
         }
     }
     
@@ -74,21 +77,44 @@ class TasksViewController: UIViewController {
     }
 }
 
-// MARK: UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
-extension TasksViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// MARK: UICollectionViewDataSource & UICollectionViewDelegateFlowLayout & UICollectionViewDelegate
+extension TasksViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tasks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TasksCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TasksCollectionViewCell
         let task = tasks[indexPath.item]
-        cell?.titleLabel.text = task.title
-        cell?.taskDescriptionLabel.text = task.taskDescription
-        cell?.topicLabel.text = task.topic
-        cell?.backgroundColor = backgroundColorCell[indexPath.item % backgroundColorCell.count]
-        cell?.layer.cornerRadius = 20
-        return cell!
+        cell.titleLabel.text = task.title
+        cell.taskDescriptionLabel.text = task.taskDescription
+        cell.topicLabel.text = task.topic
+        cell.backgroundColor = backgroundColorCell[indexPath.item % backgroundColorCell.count]
+        cell.layer.cornerRadius = 20
+        
+        cell.deleteAction = { [weak self] in
+            guard let self = self else { return }
+
+            // Удаление элемента из базы Realm
+            let taskToDelete = self.tasks[indexPath.item]
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    realm.delete(taskToDelete)
+                }
+            } catch {
+                print("Ошибка при удалении объекта из Realm: \(error)")
+                return
+            }
+
+            // Обновление данных и анимация удаления элемента
+            collectionView.performBatchUpdates({
+                self.configureGetTasks() // Обновление данных
+                collectionView.deleteItems(at: [indexPath]) // Анимированное удаление элемента
+                collectionView.reloadData()
+            }, completion: nil)
+        }
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

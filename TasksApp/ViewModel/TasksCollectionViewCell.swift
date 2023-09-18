@@ -37,6 +37,8 @@ class TasksCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    var deleteAction: (() -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -86,7 +88,6 @@ class TasksCollectionViewCell: UICollectionViewCell {
 extension TasksCollectionViewCell {
     
     @objc func deleteButtonAction() {
-       
-        
+        deleteAction?()
     }
 }
