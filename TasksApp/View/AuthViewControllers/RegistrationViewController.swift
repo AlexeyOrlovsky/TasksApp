@@ -235,7 +235,6 @@ extension RegistrationViewController {
 
 /// random color
 extension RegistrationViewController {
-
     func random(colors: [UIColor]) -> UIColor {
         return colors[Int(arc4random_uniform(UInt32(textFieldLettersColors.count)))]
      }

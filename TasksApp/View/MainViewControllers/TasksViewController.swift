@@ -10,7 +10,7 @@ import RealmSwift
 
 class TasksViewController: UIViewController {
     
-    /// Background Color Cell
+    /// Background Colors Cell
     let backgroundColorCell = [
         UIColor(red: 118/255, green: 19/255, blue: 20/255, alpha: 1),
         UIColor(red: 154/255, green: 109/255, blue: 43/255, alpha: 1),
@@ -84,8 +84,8 @@ extension TasksViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TasksCollectionViewCell
         let task = tasks[indexPath.item]
         cell?.titleLabel.text = task.title
-        cell?.taskDescription.text = task.taskDescription
-        cell?.topic.text = task.topic
+        cell?.taskDescriptionLabel.text = task.taskDescription
+        cell?.topicLabel.text = task.topic
         cell?.backgroundColor = backgroundColorCell[indexPath.item % backgroundColorCell.count]
         cell?.layer.cornerRadius = 20
         return cell!

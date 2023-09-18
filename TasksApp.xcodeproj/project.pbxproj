@@ -183,13 +183,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		D25A54EF2AAFBECC005C5516 /* ColorSetLetters */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ColorSetLetters;
-			sourceTree = "<group>";
-		};
 		D29A46EC2AAD044300B2FB48 = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +216,6 @@
 				D2036BBF2AAFC19800D9211A /* View */,
 				D25A54ED2AAFBEB1005C5516 /* Services */,
 				D25A54EE2AAFBEBC005C5516 /* ViewModel */,
-				D25A54EF2AAFBECC005C5516 /* ColorSetLetters */,
 				D29A472B2AAD050D00B2FB48 /* Other */,
 			);
 			path = TasksApp;

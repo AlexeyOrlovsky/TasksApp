@@ -11,22 +11,23 @@ import RealmSwift
 
 class CreateTaskViewController: UIViewController {
     
+    /// Topic buttons background colors
     let redBackground = UIColor(red: 118/255, green: 19/255, blue: 20/255, alpha: 1)
     let yellowBackground = UIColor(red: 154/255, green: 109/255, blue: 43/255, alpha: 1)
     let greenBackground = UIColor(red: 132/255, green: 163/255, blue: 45/255, alpha: 1)
     let darkGreenBackground = UIColor(red: 42/255, green: 149/255, blue: 104/255, alpha: 1)
     let purpleBackground = UIColor(red: 52/255, green: 140/255, blue: 146/255, alpha: 1)
-        
-        /// UI Elements
-        let titleToDoLabel: UILabel = {
-            let label = UILabel()
+    
+    /// UI Elements
+    let titleToDoLabel: UILabel = {
+        let label = UILabel()
         label.text = "Title"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         return label
     }()
     
     let toDoView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .secondarySystemBackground
         view.layer.cornerRadius = 10
         return view
@@ -49,7 +50,7 @@ class CreateTaskViewController: UIViewController {
     }()
     
     let taskView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .secondarySystemBackground
         view.layer.cornerRadius = 10
         return view
@@ -72,7 +73,7 @@ class CreateTaskViewController: UIViewController {
     }()
     
     let topicView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .secondarySystemBackground
         view.layer.cornerRadius = 10
         return view
@@ -277,6 +278,18 @@ class CreateTaskViewController: UIViewController {
         educationTopicButton.backgroundColor = darkGreenBackground
         otherTopicButton.backgroundColor = purpleBackground
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setupShowKeyboard()
+    }
+    
+    /// Show keyboard for open ViewController
+    func setupShowKeyboard() {
+        toDoTextField.delegate = self
+        toDoTextField.becomeFirstResponder()
+    }
 }
 
 /// @objc funcs
@@ -338,4 +351,9 @@ extension CreateTaskViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
         present(alert, animated: true)
     }
+}
+
+// MARK: UITextFieldDelegate
+extension CreateTaskViewController: UITextFieldDelegate {
+    //
 }

@@ -212,7 +212,6 @@ extension LoginViewController {
 
 /// random color
 extension LoginViewController {
-    
     func random(colors: [UIColor]) -> UIColor {
         return colors[Int(arc4random_uniform(UInt32(textFieldLettersColors.count)))]
      }
