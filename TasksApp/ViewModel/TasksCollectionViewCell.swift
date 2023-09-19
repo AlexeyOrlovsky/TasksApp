@@ -14,19 +14,21 @@ class TasksCollectionViewCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .white
         return label
     }()
     
     let taskDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.textColor = .white
         return label
     }()
     
     let topicLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .bold)
-        label.textColor = .secondaryLabel
+        label.textColor = .lightText
         return label
     }()
     

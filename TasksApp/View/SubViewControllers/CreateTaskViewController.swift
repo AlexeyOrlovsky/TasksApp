@@ -144,7 +144,7 @@ class CreateTaskViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(rightBarButtonAction))
-        navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationItem.rightBarButtonItem?.tintColor = .label
     }
     
     func setupAddSubviews() {

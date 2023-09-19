@@ -26,7 +26,7 @@ class TabBarViewController: UITabBarController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
         
-        tabBar.tintColor = .lightGray
+        tabBar.tintColor = .gray
         tabBar.unselectedItemTintColor = .systemGray2
         return viewController
     }

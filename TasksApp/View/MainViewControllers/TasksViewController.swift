@@ -42,11 +42,13 @@ class TasksViewController: UIViewController {
     }
     
     func setupViewDidLoad() {
+        view.backgroundColor = .systemBackground
+        
         title = "Tasts"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .done, target: self, action: #selector(rightBarButtonAction))
-        navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationItem.rightBarButtonItem?.tintColor = .label
     }
     
     func setupCollectionView() {
@@ -95,8 +97,9 @@ extension TasksViewController: UICollectionViewDataSource, UICollectionViewDeleg
         cell.deleteAction = { [weak self] in
             guard let self = self else { return }
 
-            // Удаление элемента из базы Realm
+            /// deleting item from database Realm
             let taskToDelete = self.tasks[indexPath.item]
+            
             do {
                 let realm = try Realm()
                 try realm.write {
@@ -107,12 +110,11 @@ extension TasksViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 return
             }
 
-            // Обновление данных и анимация удаления элемента
+            /// update data and delete item animation
             collectionView.performBatchUpdates({
-                self.configureGetTasks() // Обновление данных
-                collectionView.deleteItems(at: [indexPath]) // Анимированное удаление элемента
-                collectionView.reloadData()
-            }, completion: nil)
+                self.configureGetTasks() /// update data
+                collectionView.deleteItems(at: [indexPath]) /// animation delete item
+            })
         }
         return cell
     }
@@ -134,5 +136,6 @@ extension TasksViewController {
         let vc = CreateTaskViewController()
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
+        print("hello!")
     }
 }
