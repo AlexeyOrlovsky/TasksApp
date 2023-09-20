@@ -64,12 +64,13 @@ class TasksViewController: UIViewController {
         configureGetTasks()
     }
     
+    /// get and sorted items type Task
     func configureGetTasks() {
         do {
             let realm = try Realm()
             self.tasks = realm.objects(Task.self).sorted(byKeyPath: "createdAt", ascending: false)
         } catch {
-            print("Ошибка при получении данных из Realm: \(error)")
+            print("Error for get data from Realm: \(error)")
         }
     }
     
@@ -94,11 +95,11 @@ extension TasksViewController: UICollectionViewDataSource, UICollectionViewDeleg
         cell.backgroundColor = backgroundColorCell[indexPath.item % backgroundColorCell.count]
         cell.layer.cornerRadius = 20
         
-        cell.deleteAction = { [weak self] in
+        cell.deleteAction = { [weak self] in /// installation closure
             guard let self = self else { return }
 
             /// deleting item from database Realm
-            let taskToDelete = self.tasks[indexPath.item]
+            let taskToDelete = self.tasks[indexPath.item] /// extracting task from Array
             
             do {
                 let realm = try Realm()
@@ -106,14 +107,14 @@ extension TasksViewController: UICollectionViewDataSource, UICollectionViewDeleg
                     realm.delete(taskToDelete)
                 }
             } catch {
-                print("Ошибка при удалении объекта из Realm: \(error)")
+                print("Error for deleting item from Realm: \(error)")
                 return
             }
 
             /// update data and delete item animation
-            collectionView.performBatchUpdates({
+            collectionView.performBatchUpdates({ /// animation
                 self.configureGetTasks() /// update data
-                collectionView.deleteItems(at: [indexPath]) /// animation delete item
+                collectionView.deleteItems(at: [indexPath]) /// delete item with animation
             })
         }
         return cell

@@ -39,7 +39,8 @@ class TasksCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
-    var deleteAction: (() -> Void)?
+    /// will be called when for click on delete button
+    var deleteAction: (() -> Void)? /// will be executed when an item is removed from collection
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,6 +90,7 @@ class TasksCollectionViewCell: UICollectionViewCell {
 /// @objc funcs
 extension TasksCollectionViewCell {
     
+    /// work when click on delete button
     @objc func deleteButtonAction() {
         deleteAction?()
     }
