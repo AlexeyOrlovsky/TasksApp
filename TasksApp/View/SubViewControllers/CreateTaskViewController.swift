@@ -171,6 +171,7 @@ class CreateTaskViewController: UIViewController {
     }
     
     func setupButtonActions() {
+        
         homeTopicButton.addTarget(self, action: #selector(homeButtonAction), for: .touchUpInside)
         sportTopicButton.addTarget(self, action: #selector(sportButtonAction), for: .touchUpInside)
         helpTopicButton.addTarget(self, action: #selector(helpButtonAction), for: .touchUpInside)
